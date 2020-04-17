@@ -1,0 +1,495 @@
+#+title:Secrets of the JavaScript Ninja
+#+author:John Resig;
+#+author:Bear Bibeault
+#+date:2013
+
+#+begin_quote
+"From two masters, the art of crafting effective cross-browser
+JavaScript."
+#+texinfo:@author Glenn Stokol, Oracle Corporation
+#+end_quote
+
+* Preface
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+There were no books providing in-depth coverage of the most important
+parts of the JavaScript language:
+#+cindex:functions
+#+cindex:closures
+#+cindex:prototypes
+- functions
+- closures
+- prototypes
+
+
+#+cindex:cross-browser code
+Nor were there books that covered:
+- the writing of cross-browser code.
+
+
+#+cindex:new technologies
+More and more development energy is being put into new technologies
+- HTML5
+- ECMAScript new versions
+
+
+#+cindex:fundamental JavaScript
+But there isn't any point to diving into new technologies, or using
+the hottest libraries, if you don't have a proper understanding of the
+fundamental characteristics of the JavaScript language.
+
+The reality is that most development needs to make sure that code
+continues to work in the majority of browsers and for the majority of
+potential users.
+
+#+cindex:@code{with} statements
+#+cindex:timers
+JavaScript's relatively unchanging features, such as:
+- code evaluation
+- controversial =with= statements
+- timers
+
+
+#+cindex:CoffeeScript
+#+cindex:Processing.js
+#+cindex:dynamic code evaluation
+@@texinfo:@noindent@@ are continually being used in interesting ways.
+There are now a number of active programming languages that are built
+on top of, or compiled to, JavaScript, such as CoffeeScript and
+Processing.js.  These language require complex language parsing, code
+evaluation, and scope manipulation in order to work effectively.
+Although dynamic code evaluation has been maligned due to its
+complexity and potential for security issues, without it we wouldn't
+have had the CoffeeScript prgramming language, which has gone on to
+influence the upcoming ECMAScript specification itself.
+
+#+cindex:inject code
+Dynamic code evaluation in the browser is a very powerful feature; you
+can build in-browser programming environments and do crazy things like
+inject code into a live runtime.  This results in an extremely
+compelling way to learn computer programming and provides new
+capabilities that wouldn't be possible in a traditional environment.
+
+The future for browser development continues to be very strong, and
+its largely due to the features encapsulated in JavaScript and in the
+browser APIs.  Having a salid grasp of the most crucial parts of the
+JavaScript language, combined with a desire for writing code that'll
+work in many browsers, will enable you to create code that's elegant,
+fast, and ubiquitous.
+
+* About this Book
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+This book is primarily focused on JavaScript for web applications.
+However, the fundamentals of the language presented in part 2 are
+applicable accros the board.  With more and more developers using
+JavaScript, it's now more important than ever that they grasp the
+fundamentals.
+
+#+texinfo:@heading Audience
+
+This book is /not/ for the complete novice to JavaScript.  This book
+is aimed at web developers who already have at least a basic grasp of
+JavaScript.  You should understand:
+- the basic structure of JavaScript statements
+- and how they work to create straightforward on-page scripts.
+- have a working knowledge of HTML and CSS.
+
+
+Check out:
+- /JavaScript: the Definitive Guide/ by David Flanagan
+- /JavaScript: The Good Parts/ by Douglas Crockford
+- /Head First JavaScript/ by Michael Morrison
+
+#+texinfo:@heading Roadmap
+
+This book is organized to take you from an apprentice to ninja in four
+parts:
+
+#+texinfo:@subheading Part 1 Introduction and Tools
+Introduces the topic and some tools we'll need as we progress through
+the rest of the book.
+
+#+texinfo:@subheading Part 2 JS Fundamentals
+Focuses on JavaScript Fundamentals: aspects of the language that you
+take for granted but aren't really sure how they work.  This may be
+the most important part of the book, and even if it's all you read,
+you'll come away with a much sounder understanding of JavaScript, the
+language.
+
+#+texinfo:@subheading Using the Fundamentals
+Using the fundamentals to solve knotty problems that the browsers
+throw at us.
+
+#+texinfo:@subheading Advanced Topics
+A look at advanced topics focusing on lessons learned from the
+creation of advanced JavaScript libraries such as JQuery.
+
+#+texinfo:@subheading Chapter 1 Challenges
+Chapter 1 introduces us to the challenges we face as writers of
+advanced web applications.  It presents some of the problems that the
+proliferation of browsers creates, and suggest best current practices
+that we should follow when developing our applications, including
+testing and performance analysis.
+
+#+texinfo:@subheading Chapter 2 Testing
+Chapter 2 discusses testing; looks at the current state of testing and
+test tools; introduces the testing concept of the =assert=.
+
+#+texinfo:@subheading Chapter 3 Fundamentals of the Language
+Starting with a thorough examination of the /function/ as defined by
+JavaScript.  It's a solid understanding of the function, and
+JavaScript as a functional language, that begins our transformation
+from run-of-the-mill JavaScript coders to the JavaScript ninja.
+
+#+texinfo:@subheading Chapter 4 Application of Functions
+Chapter 4 takes the fundamentals we learned and applies them to
+problems we face in creating our applications.
+- Recursion
+- Functional programming aspects of JavaScript applied
+- elegant code
+- robust and succinct code
+- deal with variable argument lists
+- overload functions
+
+#+texinfo:@subheading Chapter 5 Closures
+One of the most important concepts you can take away from this book is
+the subject of closures.  They allow us to exert fine-grained control
+over the scope of objects that we declare and create in our programs.
+
+#+texinfo:@subheading Chapter 6 Objects
+Objects are finally addressed in chapter 6; we learn how patterns of
+objects can be created through the =prototype= property of the
+function; we learn how objects are tied to functions for their
+definitions.
+
+#+texinfo:@subheading Chapter 7 Regular Expressions
+Chapter 7 focuses on the regular expession.  Learn how to construct
+and use regular expressions and how to solve some recurring problems
+elegantly using REs and the methods that work with them.
+
+#+texinfo:@subheading Chapter 8 Timers and Intervals
+Learn how timers and intervals work in the single-threaded nature of
+JavaScript.
+
+#+texinfo:@subheading Chapter 9 Runtime Code Evaluation
+Open the black box of JavaScript's runtime code evaluation.  Look at
+various ways to evaluate code on the fly, including how to do so
+safely and in the scope of our choosing.
+- JSON evaluation
+- metalanguages (a.k.a domain-specific languages)
+- compression
+- obfuscation
+- aspect-oriented programming
+
+
+#+texinfo:@subheading Chapter 10 Controversional =with= Statement
+Examine the controversional =with= statement, which is used to shorten
+references within a scope.  It exists in a lot of code in the wild and
+you should understand it regardless of whether you think it's the bomb
+or an abomination.
+
+#+texinfo:@subheading Chapter 11 Cross-Browser Issues
+Examine the five key development concerns with regard to these issues:
+- browser differences
+- bugs and bug fixes
+- external code and markup
+- missing features
+- regressions
+
+
+Strategies such as:
+- feature simulation
+- object detection
+
+
+@@texinfo:@noindent@@ are discussed.
+
+#+texinfo:@subheading Chapter 12 Element Attributes, Properties, and Styles
+Handling
+- element attributes
+- properties
+- styles
+
+
+#+texinfo:@subheading Chapter 13 Event Handling in the Browsers
+Investigation of event handling in the browsers and ways to create a
+unified subsystem that handles events in a browser-agnostic manner.
+This includes adding features not provided by the browsers, such as:
+- custom events
+- event delegation
+
+
+#+texinfo:@subheading Chapter 14 Advanced Topics
+Advanced topics taken from the heart of JavaScript libraries such as
+JQuery.  How DOM manipulation APIs can be constructed to manipulate
+the DOM at runtime, including injecting new elements into the DOM.
+
+#+texinfo:@subheading Chapter 15 CSS Selector Engines
+How CSS selector engines are constructed and the different ways in
+which they parse and evaluate selectors.
+
+* Part 1---Preparing for Training
+This part of the book will set the stage for your JavaScript ninja
+training.
+
+*Chapter 1*: what we're trying to accomplish with this book; the
+framework for the environment in which JavaScript operates.
+
+*Chapter 2*: why testing is is so important; brief survey of some of
+the testing tools available; explore simple testing tools you'll use.
+
+** Chapter 1---Enter the Ninja
+#+texinfo:@heading This chapter covers
+- the purpose and structure of this book
+- which libraries we'll look at
+- what is "advanced" JavaScript programming
+- cross-browser authoring
+- test suite examples
+
+*** Section 1.1---The JavaScript Libraries
+
+*** Section 1.2---Understanding the JavaScript Language
+
+*** Section 1.3 Cross-Browser Considerations
+
+*** Section 1.4 Current Best Practices
+
+** Chapter 2---Arming with Testing and Debugging
+
+*** Section 2.1---Debugging Code
+
+*** Section 2.2 Test Generation
+
+*** Section 2.3 Testing Frameworks
+
+*** Section 2.4 The Fundamentals of a Test Suite
+
+* Part 2---Apprentice Training
+
+** Chapter 3---Functions Are Fundamental
+
+*** Section 3.1---What's the Functional Difference?
+
+*** Seciton 3.2---Declarations
+
+*** Section 3.3---Invocations
+
+** Chapter 4---Wielding Functions
+
+*** Section 4.1----Anonymous Functions
+
+*** Section 4.2---Recursion
+
+*** Section 4.3---Fun with Functions as Objects
+
+*** Section 4.4---Variable-length Arguments Lists
+
+*** Section 4.5---Checking for Functions
+
+** Chapter 5---Closing in on Closures
+
+*** Section 5.1---How Closures Work
+
+*** Section 5.2---Putting Closures to Work
+
+*** Section 5.3---Binding Function Contexts
+
+*** Section 5.4---Partially Applying Functions
+
+*** Seciton 5.5---Overriding Function Behavior
+
+*** Section 5.6---Immediate Functions
+
+** Chapter 6---Object-Orientation with Prototypes
+
+*** Seciton 6.1---Instantiation and Prototypes
+
+*** Section 6.2---The Gotchas!
+
+*** Section 6.3---Writing Class-like Code
+
+** Chapter 7---Wrangling Regular Expresions
+
+*** Seciton 7.1---Why Regular Expressions Rock
+
+*** Section 7.2---A Regular Expression Refresher
+
+*** Section 7.3---Compiling Regular Expressions
+
+*** Section 7.4---Capturing Matching Segments
+
+*** Seciton 7.5---Replacing Using Functions
+
+*** Section 7.6---Solving Commoin Problems with Regular Expressions
+
+** Chapter 8---Taming Threads and Timers
+
+*** Section 8.1---How Timers and Threading Work
+
+*** Seciton 8.2---Minimum Timer Delay and Relability
+
+*** Section 8.3---Dealing with Compuationally Expensive Processing
+
+*** Section 8.4---Central Timer Control
+
+*** Section 8.5---Asynchronous Testing
+
+* Part 3---Ninja Training
+
+** Chapter 9---Ninja Alchamy--Runtime Code Evaluation
+
+*** Section 9.1---Code Evaluation Mechanism
+
+*** Section 9.2---Function "Decompilation"
+
+*** Section 9.3---Code Evaluation in Action
+
+** Chapter 10---With Statements
+
+*** Section 10.1---What's with "with"?
+
+*** Seciton 10.2---Real-World Examples
+
+*** Section 10.3---Importing Namespaced Code
+
+*** Section 10.4---Testing
+
+*** Section 10.5---Templating with "with"
+
+** Chapter 11---Developing Cross-Browser Strategies
+
+*** Section 11.1---Choosing Which Browsers to Support
+
+*** Section 11.2---The Five Major Development Concerns
+
+*** Section 11.3---Implementation Strategies
+
+*** Section 11.4---Reducing Assumptions
+
+** Chapter 12---Cutting Through Attributes--Properties--and CSS
+
+*** Section 12.1---DOM Attributes and Properties
+
+*** Seciton 12.2---Cross-Browser Attribute Issues
+
+*** Section 12.3---Styling Attribute Headaches
+
+*** Section 12.4---Fetching Computed Styles
+
+* Part 4---Master Training
+
+** Chpater 13---Surviving Events
+
+*** Section 13.1---Binding and Unbinding Event Handlers
+
+*** Section 13.2---The Event Object
+
+*** Section 13.3---Handler Management
+
+*** Section 13.4---Triggering Events
+
+*** Section 13.5---Bubbling and Delegation
+
+*** Section 13.6---The Document Ready Event
+
+** Chapter 14---Manipulating the DOM
+
+*** Section 14.1---Injecting HTML into the DOM
+
+*** Section 14.2---Cloning Elements
+
+*** Section 14.3---Removing Elements
+
+*** Section 14.4---Text Contents
+
+** Chapter 15---CSS Selector Engines
+
+*** Section 15.1---The W3C Selectors API
+
+*** Section 15.2---Using XPath to Find Elements
+
+*** Section 15.3---The Pure DOM Implmentation
+
+* Errata
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+Last updated March 7, 2015
+
+- In chapter 1, page 10, section 1.4.2 ::
+  A comment in the code snippet is terminated with *//. It should be
+     terminated with */.
+- Page 39, first paragraph following the code example ::
+  The ~compare()~ method of the inline Comparator implementation is
+     expected to return a positive number if the order of the passed
+     values should be reversed, a negative number if not, and zero if
+     the values are equal, so simply subtracting the values produces
+     the desired return value to sort the array into descending order.
+- In chapter 4, page 74, listing 4.9 ::
+  The line identified with (1) annotation should read:
+  : if (!isPrime.answers) isPrime.answers = {};.
+- In chapter 7, page 157, table 7.1 ::
+  The Unicode hexadecimal terms, \x0000 and \xFFFF are incorrect. They
+     should be \u0000 and \uFFFF.
+- In chapter 7, page 161, listing 7.4 ::
+  The regular expression passed to ~match()~ should be
+     ~/opacity=([^)]+)/~.  It is correct in the example code.
+- In chapter 8, page 206, listing 9.7 ::
+  The expression ~base2.namespace ==~ has an extra equals sign. It
+     should ~base2.namespace =~.
+- In chapter 11, page 246, listing 11.3 ::
+  The following excerpt doesn't match the source code:
+  #+begin_src js
+    if (!window.findByTagWorksAsExpected) {
+        for (var n = allElements.length - 1; n >= 0; n--) {
+            if (allElements[n].nodeType === 1)
+                allElements.splice(n,1);
+        }
+    }
+  #+end_src
+
+  It should be:
+  #+begin_src js
+    if (!window.findByTagWorksAsExpected) {
+        var onlyElements = [];
+        for (var n = 0; n < allElements.length; n++) {
+            if (allElements[n].nodeType === 1)
+                onlyElements.push(allElements[n]);
+        }
+        allElements = onlyElements;
+    }
+  #+end_src
+- In chapter 12, page 268, listing 12.7 ::
+  In the line annotated by callout 5, the property should be
+     =borderWidth=.  This change should be made in the example code
+     file chapter-12/listing-12.7.html.
+
+* Concept Index
+:PROPERTIES:
+:INDEX:    cp
+:UNNUMBERED: t
+:END:
+* Export Options
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_CONTAINER: div
+#+DESCRIPTION:
+#+KEYWORDS:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+SUBTITLE:
+#+INFOJS_OPT:
+#+CREATOR: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)
+#+LATEX_HEADER:
+
