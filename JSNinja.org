@@ -340,6 +340,40 @@ libraries to gather a complete knowledge base we can use to create our
 own effective JavaScript code.
 
 *** Section 1.2---Understanding the JavaScript Language
+JavaScript consists of a close relationship between objects,
+functions, and closures.  Understanding the strong relationship
+between these three concepts can vastly improve our JavaScript
+programming ability, giving us a strong foundation for any type of
+application development.
+
+#+cindex:timers
+#+cindex:regular expressions
+In addition to these fundamental concepts, there are two features in
+JavaScript that are woefully underused:
+- timers
+- regular expressions
+
+
+These two concepts have applications in virtually any JavaScript code
+base, but they aren't always used to theri full potential due to their
+misunderstood nature.
+
+#+cindex:timers
+A firm grasp of how timers operate within browsers, gives us the
+ability to tackle complex coding tasks such as:
+- long-running computations
+- smooth animations.
+
+
+#+cindex:regular expressions
+A sound understanding of how regular expressions work allows us to
+simplify what would otherwise be quite complicated pieces of code.
+
+As another high point of our advanced tour of the JavaScript language,
+we'll take a look at the the ~with~ statement, and the divisive
+~eval()~ method---two important, but controversial, language features
+that have been trivialized, mis-used, and even condemned outright by
+many JavaScript programmers.
 
 *** Section 1.3 Cross-Browser Considerations
 
