@@ -249,7 +249,95 @@ the testing tools available; explore simple testing tools you'll use.
 - cross-browser authoring
 - test suite examples
 
+
+There's nothing simple about creating effective and cross-browser
+JavaScript code.  There is the added complexity of dealing with obtuse
+browser differences and complexities.  JavaScript developers
+frequently capture sets of common and reusable functionality in the
+form of JavaScript libraries.  They need to be easy to use, incur the
+least amount of overhead, and be able to work across all browsers.
+
+Understanding how the very best JavaScript libraries are constructed
+can provide great insight into how our own code can be constructed to
+achieve these same goals.  This book sets out to uncover the
+techniques and secrets used by these world-class code bases and to
+gather them into a single resource.
+
+In this book we'll be examining the techniques that were (and continue
+to be) used to create the popular JavaScript libraries.
+
 *** Section 1.1---The JavaScript Libraries
+The techniques and practices used to create modern JavaScript
+libraries will be the focus of attention in this book.  The primary
+library that we'll be considering is *JQuery*, which has risen in
+prominence to be the most ubiquitous JavaScript library in modurn use.
+
+#+texinfo:@heading JQuery by John Resig
+
+#+cindex:JQuery
+#+cindex:Resig, John
+*JQuery* http://jquery.com was created by John Resig and released in
+January of 2006.  JQuery popularized the use of CSS selectors to match
+DOM content.  It provides:
+- DOM manipulation
+- AJAX
+- event handling
+- animation functionality
+
+
+#+texinfo:@heading Other JavaScript Libraries
+#+cindex:JavaScript libraries
+In add to examining example code from JQuery, we'll also look at
+techniques utilized by the following libraries:
+
+#+cindex:Prototype
+- Prototype http://prototypejs.org ::
+
+     The godfather of the modern JavaScript libraries, created by Sam
+     Stephenson and released in 2005.  This library embodies DOM,
+     Ajax, and event functionality, in addition to object-oriented,
+     aspect-oriented, and functional programming techniques.[fn:1]
+     #+cindex:Yahoo! UI
+     #+cindex:YUI
+- Yahoo! UI http://developer.yahoo.com/yui ::
+
+     The result of internal JavaScript framework development at Yahoo!
+     and released to the public in February of 2006.  Yahoo! UI (YUI)
+     includes DOM, Ajax, event and animation capabilities in addition
+     to a number of preconstructed widgets (calendar, grid, accordion,
+     and others).[fn:2]
+     #+cindex:base2
+     #+cindex:Edwards, Dean
+- base2 http://code.google.com/p/base2 ::
+
+     Created by Dean Edwards and released in March 2007.  This library
+     supports DOM and event functionality.  Its claim to fame is that
+     it attempts to implement the various W3C specifications in a
+     universal, cross-browser manner.[fn:3]
+
+
+All of these libraries are well-constructed and tackle their target
+problem areas comprehensively.  They'll serve as a good basis for
+further analysis, and understanding the fundamental construction of
+these code bases will give us insight into the process of world-class
+JavaScript library construction.
+
+These techniques can be applied to all JavaScript code, regardless of
+size.
+
+#+texinfo:@heading The Makeup of a JavaScript Library
+
+The makeup of a JavaScript library can be broken down into three
+aspects:
+
+- Advanced use of the JavaScript language
+- Meticulous construction of cross-browser code
+- The use of current best practices that tie everything together
+
+
+We'll be carefully analyzing these three aspect in each of the
+libraries to gather a complete knowledge base we can use to create our
+own effective JavaScript code.
 
 *** Section 1.2---Understanding the JavaScript Language
 
@@ -492,4 +580,13 @@ Last updated March 7, 2015
 #+INFOJS_OPT:
 #+CREATOR: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)
 #+LATEX_HEADER:
+
+* Footnotes
+
+[fn:1] This project appears to be abandoned.
+
+[fn:2] This project is no longer maintained.  See
+https://yahooeng.tumblr.com/post/96098168666/important-announcement-regarding-yui.
+
+[fn:3] This project appears to be abandoned.
 
