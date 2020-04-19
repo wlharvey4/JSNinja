@@ -400,6 +400,75 @@ trhough F, or any other grading system that meets our needs) to each
 browser/platform combination.
 
 *** Section 1.4 Current Best Practices
+You also need to exhibit the traits that scores of previous developers
+have proved are beneficial to the development of quality code.  These
+traits are known as /best pracices/ and, in addition to mastery of the
+language, include such elements as:
+- testing
+- performance analysis
+- debugging skills
+
+
+It's vitally important to adhere to these practices in our coding, and
+frequently; the complexity of cross-browser development certainly
+justifies it.
+
+**** Current Best Practise---Testing
+Throughout we'll be applying a number of testing techniques that serve
+to ensure that our example code operates as intended, as well as to
+serve as an example of how to test general code.  The primary tool
+that we'll be using for testing is the ~assert()~ function, whose
+purpose is to assert that a premise is either true or false.
+
+The general form of this function is:
+
+: assert(condition, message)
+
+@@texinfo:@noindent@@ where the first parameter is a condition that
+whould be true, and the second is a message that will be displayed if
+it is not.  Consider:
+
+: assert(a == 1, "Disaster! a is not 1!");
+
+If the value of variable =a= is not equal to 1, the assertion
+fails,and the somewhat overly dramatic message is displayed.
+
+Note that the ~assert()~ function is not an innate feature of the
+language, so we'll be implementing it ourselves.
+
+**** Current Best Practice---Performance Analysis
+Another important practice is performance analysis.  The JavaScript
+engines in the browsers have been making astounding strides in the
+performance of JavaScript itself, but that's no excuse for us to write
+sloppy and inefficient code.
+
+We'll be using code such as the following for collecting performance
+information:
+
+#+BEGIN_SRC js
+start = new Date().getTime()
+for (var n = 0; n < maxCount; n++) {
+  /* perform the operation to be measured */
+}
+elapsed = new Date().getTime() - start;
+assert(true, "Measured time: " + elapsed);
+#+END_SRC
+
+Here, we bracket the execution of the code to be measured with the
+collection of timestamps: one before we execute the code and one
+after.  Their difference tells us how long the code took to perform,
+which we compare against alternatives to the code that we measure
+using the same technique.
+
+Note how we perform the code multiple times; in this example we
+perform it the number of times represented by ~maxCount~.  Because a
+single operation of the code happens much too quickly to measure
+reliably, we need to perform the code many times to get a measurable
+value.  Frequently this count can be in the tens of thousands or even
+millions, depending upon the nature of the code being measured.
+
+These best-practice techniques, along with others that we'll learn
+along the way, will greatly enhance our JavaScript development.
 
 ** Chapter 2---Arming with Testing and Debugging
 
