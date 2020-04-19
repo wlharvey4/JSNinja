@@ -376,6 +376,28 @@ that have been trivialized, mis-used, and even condemned outright by
 many JavaScript programmers.
 
 *** Section 1.3 Cross-Browser Considerations
+When developing browser-based JavaScript applications, sooner rather
+than later, we're going to run into /The Browsers/ and their maddening
+issues and inconsistencies.
+
+Developing a comprehensive strategy for tackling these browser issues,
+and becoming intimately familiar with their differences and quirks, is
+just as important as proficiency in JavaScript itself.
+
+When writing browser applications or JavaScript libraries to be used
+in them, picking and choosing which browsers to support is an
+important consideration.  How do we decide which to support, and to
+what level?
+
+An approach that we can employ is one loosely borrowed from an older
+Yahoo! approach that was called /graded browser support/.  In this
+technique, we create a browser support matrix that serves as a
+snapshot of how important a browser and its platform are to our needs.
+
+In such a table, we list the target platforms on one axis, and the
+browsers on the other.  Then, in the table cells, we give a "grade" (A
+trhough F, or any other grading system that meets our needs) to each
+browser/platform combination.
 
 *** Section 1.4 Current Best Practices
 
